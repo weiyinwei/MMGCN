@@ -48,6 +48,7 @@ We provide three processed datasets: Kwai, Tiktok, and Movielnes.
 - We select some users and micro-videos in [Kwai](https://drive.google.com/open?id=1Xk-ofNoDnwcZg_zYE5tak9s1iW195kY2) and [Tiktok](https://drive.google.com/open?id=1mlKTWugOr8TxRb3vq_-03kbr0olSJN_7) datasets accoding to the timestamp. 
 - We extract the visual, acoustic, and textual features of all trailers in [Movielens](https://drive.google.com/open?id=1I1cHf9TXY88SbVCDhRiJV1drWX5Tc1-8).
 
+
 ||Kwai|Tiktok|Movielens
 |:-|:-|:-|:-|
 |#Interactions|1,664,305|726,065|1,239,508|
@@ -56,6 +57,7 @@ We provide three processed datasets: Kwai, Tiktok, and Movielnes.
 |#Visual|2,048|128|2,048|
 |#Acoustic|-|128|128|
 |#Textual|100|128|100|
+
 
 -`train.npy`
    Train file. Each line is a user with her/his positive interactions with items: (userID and micro-video ID)  
