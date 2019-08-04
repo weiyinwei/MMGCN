@@ -46,7 +46,7 @@ Some important arguments:
 We provide three processed datasets: Kwai, Tiktok, and Movielnes.  
 - You can find the full version of recommendation datasets via [Kwai](https://www.kuaishou.com/activity/uimc), [Tiktok](http://ai-lab-challenge.bytedance.com/tce/vc/), and [Movielens](https://grouplens.org/datasets/movielens/).
 - We select some users and micro-videos in [Kwai](https://drive.google.com/open?id=1Xk-ofNoDnwcZg_zYE5tak9s1iW195kY2) and [Tiktok](https://drive.google.com/open?id=1mlKTWugOr8TxRb3vq_-03kbr0olSJN_7) datasets accoding to the timestamp. 
-- We extract the visual, acoustic, and textual features of all trailers in [Movielens](https://drive.google.com/open?id=1I1cHf9TXY88SbVCDhRiJV1drWX5Tc1-8).
+- We extract the visual, acoustic, and textual features of all trailers in [Movielens](https://drive.google.com/open?id=1I1cHf9TXY88SbVCDhRiJV1drWX5Tc1-8) dataset.
 
 
 ||Kwai|Tiktok|Movielens
