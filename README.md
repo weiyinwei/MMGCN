@@ -25,7 +25,7 @@ The instruction of commands has been clearly stated in the codes.
 
 Some important arguments:  
 
-- `model_name`:  
+- `model_name`: 
   It specifies the type of model. Here we provide three options: 
   1. `MMGCN` (by default) proposed in MMGCN: Multi-modal Graph Convolution Network for Personalized Recommendation of Micro-video, ACM MM2019. Usage: `--model_name='MMGCN'`
   2. `VBPR` proposed in [VBPR: Visual Bayesian Personalized Ranking from Implicit Feedback](https://arxiv.org/abs/1510.01784), AAAI2016. Usage: `--model_name 'VBPR'`  
@@ -34,13 +34,13 @@ Some important arguments:
   4. `GraphSAGE` proposed in [Inductive Representation Learning on Large Graphs](https://arxiv.org/abs/1706.02216), NIPS2017. Usage: `--model_name 'GraphSAGE'`
   5. `NGCF` proposed in [Neural Graph Collaborative Filtering](https://arxiv.org/abs/1905.08108), SIGIR2019. Usage: `--model_name 'NGCF'`  
 
-- `aggr_mode`  
+- `aggr_mode` 
   It specifics the type of aggregation layer. Here we provide three options:  
   1. `mean` (by default) implements the mean aggregation in aggregation layer. Usage `--aggr_mode 'mean'`
   2. `max` implements the max aggregation in aggregation layer. Usage `--aggr_mode 'max'`
   3. `add` implements the sum aggregation in aggregation layer. Usage `--aggr_mode 'add'`
   
-- `concat`:  
+- `concat`:
   It indicates the type of combination layer. Here we provide two options:
   1. `concat`(by default) implements the concatenation combination in combination layer. Usage `--concat 'True'`
   2. `ele` implements the element-wise combination in combination layer. Usage `--concat 'False'`
