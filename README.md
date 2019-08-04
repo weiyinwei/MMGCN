@@ -24,20 +24,22 @@ The instruction of commands has been clearly stated in the codes.
 `python train.py --model_name='MMGCN' --l_r=0.0001 --weight_decay=0.001 --batch_size=1024 --dim_latent=64 --num_workers=30 --aggr_mode='mean' --num_layer=2 --concat=False`  
 
 Some important arguments:  
+
 - `model_name`:  
   It specifies the type of model. Here we provide three options: 
-  
   1. `MMGCN` (by default) proposed in MMGCN: Multi-modal Graph Convolution Network for Personalized Recommendation of Micro-video, ACM MM2019. Usage: `--model_name='MMGCN'`
   2. `VBPR` proposed in [VBPR: Visual Bayesian Personalized Ranking from Implicit Feedback](https://arxiv.org/abs/1510.01784), AAAI2016. Usage: `--model_name 'VBPR'`  
   3. `ACF` proposed in [Attentive Collaborative Filtering: Multimedia Recommendation with Item- and Component-Level Attention
 ](https://dl.acm.org/citation.cfm?id=3080797), SIGIR2017. Usage: `--model_name 'ACF'`  
   4. `GraphSAGE` proposed in [Inductive Representation Learning on Large Graphs](https://arxiv.org/abs/1706.02216), NIPS2017. Usage: `--model_name 'GraphSAGE'`
-  5. `NGCF` proposed in [Neural Graph Collaborative Filtering](https://arxiv.org/abs/1905.08108), SIGIR2019. Usage: `--model_name 'NGCF'`
-- aggr_mode  
+  5. `NGCF` proposed in [Neural Graph Collaborative Filtering](https://arxiv.org/abs/1905.08108), SIGIR2019. Usage: `--model_name 'NGCF'`  
+
+- `aggr_mode`  
   It specifics the type of aggregation layer. Here we provide three options:  
   1. `mean` (by default) implements the mean aggregation in aggregation layer. Usage `--aggr_mode 'mean'`
   2. `max` implements the max aggregation in aggregation layer. Usage `--aggr_mode 'max'`
   3. `add` implements the sum aggregation in aggregation layer. Usage `--aggr_mode 'add'`
+  
 - `concat`:  
   It indicates the type of combination layer. Here we provide two options:
   1. `concat`(by default) implements the concatenation combination in combination layer. Usage `--concat 'True'`
