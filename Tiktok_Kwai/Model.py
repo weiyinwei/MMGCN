@@ -77,7 +77,7 @@ class GCN(torch.nn.Module):
 
 
 class MMGCN(torch.nn.Module):
-    def __init__(self, v_feat, words_tensor, edge_index, batch_size, num_user, num_item, aggr_mode, concate, num_layer, has_id, dim_x):
+    def __init__(self, v_feat, a_feat, words_tensor, edge_index, batch_size, num_user, num_item, aggr_mode, concate, num_layer, has_id, dim_x):
         super(MMGCN, self).__init__()
         self.batch_size = batch_size
         self.num_user = num_user
@@ -85,7 +85,8 @@ class MMGCN(torch.nn.Module):
         self.aggr_mode = aggr_mode
         self.concate = concate
         self.words_tensor = torch.tensor(words_tensor, dtype=torch.long).cuda()
-        self.v_feat = torch.tensor(v_feat,dtype=torch.float).cuda()
+        self.v_feat = torch.tensor(v_feat, dtype=torch.float).cuda()
+        self.a_feat = torch.tensor(a_feat, dytpe=torch.float).cuda()
         self.edge_index = torch.tensor(edge_index).t().contiguous().cuda()
         self.edge_index = torch.cat((self.edge_index, self.edge_index[[1,0]]), dim=1)
 
@@ -97,24 +98,26 @@ class MMGCN(torch.nn.Module):
         self.v_gcn = GCN(self.edge_index, batch_size, num_user, num_item, self.v_feat.size(1), dim_x, self.aggr_mode, self.concate, num_layer=num_layer, has_id=has_id, dim_latent=128)#256)
         self.t_gcn = GCN(self.edge_index, batch_size, num_user, num_item, 128, dim_x, self.aggr_mode, self.concate, num_layer=num_layer, has_id=has_id, dim_latent=128)
 
-    def forward(self, user_nodes, item_nodes):
+    def forward(self, user_nodes, pos_item_nodes, neg_item_nodes):
         v_rep = self.v_gcn(self.v_feat, self.id_embedding)
+        a_rep = self.a_gcn(self.a_feat, self.id_embedding)
         self.t_feat = torch.tensor(scatter_('mean', self.word_embedding(self.words_tensor[1]), self.words_tensor[0])).cuda()
         t_rep = self.t_gcn(self.t_feat, self.id_embedding)
         
-        representation = (v_rep+t_rep)/2
+        representation = (v_rep+a_rep+t_rep)/3
 
         self.result_embed = representation
         user_tensor = representation[user_nodes]
-        item_tensor = representation[item_nodes]
-        scores = torch.sum(user_tensor*item_tensor, dim=1)
-        return scores
+        pos_item_tensor = representation[pos_item_nodes]
+        neg_item_tensor = representation[neg_item_nodes]
+        pos_scores = torch.sum(user_tensor*pos_item_tensor, dim=1)
+        neg_scores = torch.sum(user_tensor*neg_item_tensor, dim=1)
+        return pos_scores, neg_scores
 
 
     def loss(self, data):
         user, pos_items, neg_items = data
-        pos_scores = self.forward(user.cuda(), pos_items.cuda())
-        neg_scores = self.forward(user.cuda(), neg_items.cuda()) 
+        pos_scores, neg_scores = self.forward(user.cuda(), pos_items.cuda(), neg_items.cuda()) 
         loss_value = -torch.sum(torch.log2(torch.sigmoid(pos_scores - neg_scores)))
         return loss_value
 
