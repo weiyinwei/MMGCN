@@ -101,22 +101,23 @@ class MMGCN(torch.nn.Module):
         self.result_embed = nn.init.xavier_normal_(torch.rand((num_user+num_item, dim_x))).cuda()
 
 
-    def forward(self, user_nodes, item_nodes):
+    def forward(self, user_nodes, pos_item_nodes, neg_item_nodes):
         v_rep = self.v_gcn(self.id_embedding)
         a_rep = self.a_gcn(self.id_embedding)
         t_rep = self.t_gcn(self.id_embedding)
         representation = (v_rep+a_rep+t_rep)/3
         self.result_embed = representation
         user_tensor = representation[user_nodes]
-        item_tensor = representation[item_nodes]
-        scores = torch.sum(user_tensor*item_tensor, dim=1)
-        return scores
+        pos_item_tensor = representation[pos_item_nodes]
+        neg_item_tensor = representation[neg_item_nodes]
+        pos_scores = torch.sum(user_tensor*pos_item_tensor, dim=1)
+        neg_scores = torch.sum(user_tensor*neg_item_tensor, dim=1)
+        return pos_scores, neg_scores
 
 
     def loss(self, data):
         user, pos_items, neg_items = data
-        pos_scores = self.forward(user.cuda(), pos_items.cuda())
-        neg_scores = self.forward(user.cuda(), neg_items.cuda()) 
+        pos_scores, neg_scores = self.forward(user.cuda(), pos_items.cuda(), neg_items.cuda())
         loss_value = -torch.sum(torch.log2(torch.sigmoid(pos_scores - neg_scores)))
         return loss_value
 
