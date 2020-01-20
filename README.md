@@ -17,9 +17,9 @@ The code has been tested running under Python 3.5.2. The required packages are a
 ## Example to Run the Codes
 The instruction of commands has been clearly stated in the codes.
 - Kwai dataset  
-```python train.py --model_name='Kwai' --l_r=0.0005 --weight_decay=0.1 --batch_size=1024 --dim_latent=64 --num_workers=30 --aggr_mode='mean' --num_layer=2 --concat=False```
+```python train.py --model_name='MMGCN' --l_r=0.0005 --weight_decay=0.1 --batch_size=1024 --dim_latent=64 --num_workers=30 --aggr_mode='mean' --num_layer=2 --concat=False```
 - Tiktok dataset  
-`python train.py --model_name='Tiktok' --l_r=0.0005 --weight_decay=0.1 --batch_size=1024 --dim_latent=64 --num_workers=30 --aggr_mode='mean' --num_layer=2 --concat=False`
+`python train.py --model_name='MMGCN' --l_r=0.0005 --weight_decay=0.1 --batch_size=1024 --dim_latent=64 --num_workers=30 --aggr_mode='mean' --num_layer=2 --concat=False`
 - Movielens dataset  
 `python train.py --model_name='MMGCN' --l_r=0.0001 --weight_decay=0.0001 --batch_size=1024 --dim_latent=64 --num_workers=30 --aggr_mode='mean' --num_layer=2 --concat=False`  
 
@@ -50,9 +50,9 @@ Some important arguments:
 ## Dataset
 We provide three processed datasets: Kwai, Tiktok, and Movielnes.  
 - You can find the full version of recommendation datasets via [Kwai](https://www.kuaishou.com/activity/uimc), [Tiktok](http://ai-lab-challenge.bytedance.com/tce/vc/), and [Movielens](https://grouplens.org/datasets/movielens/).
-- We select some users and micro-videos in [Kwai](https://drive.google.com/open?id=1Xk-ofNoDnwcZg_zYE5tak9s1iW195kY2) and [Tiktok](https://drive.google.com/open?id=1mlKTWugOr8TxRb3vq_-03kbr0olSJN_7) datasets accoding to the timestamp. 
+<!--- We select some users and micro-videos in [Kwai](https://drive.google.com/open?id=1Xk-ofNoDnwcZg_zYE5tak9s1iW195kY2) and [Tiktok](https://drive.google.com/open?id=1mlKTWugOr8TxRb3vq_-03kbr0olSJN_7) datasets accoding to the timestamp. 
 - We extract the visual, acoustic, and textual features of all trailers in [Movielens](https://drive.google.com/open?id=1I1cHf9TXY88SbVCDhRiJV1drWX5Tc1-8) dataset.
-
+-->
 ||#Interactions|#Users|#Items|Visual|Acoustic|Textual|
 |:-|:-|:-|:-|:-|:-|:-|
 |Kwai|1,664,305|22,611|329,510|2,048|-|100|
