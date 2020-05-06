@@ -1,3 +1,5 @@
+
+
 # MMGCN: Multi-modal Graph Convolution Network for Personalized Recommendation of Micro-video
 This is our Pytorch implementation for the paper:  
 > Yinwei Wei, Xiang Wang, Liqiang Nie, Xiangnan He, Richang Hong, and Tat-Seng Chua(2019). MMGCN: Multi-modal Graph Convolution Network for Personalized Recommendation of Micro-video. In ACM MM`19, NICE, France,Oct. 21-25, 2019  
