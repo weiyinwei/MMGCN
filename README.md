@@ -52,9 +52,10 @@ Some important arguments:
 ## Dataset
 We provide three processed datasets: Kwai, Tiktok, and Movielnes.  
 - You can find the full version of recommendation datasets via [Kwai](https://www.kuaishou.com/activity/uimc), [Tiktok](http://ai-lab-challenge.bytedance.com/tce/vc/), and [Movielens](https://grouplens.org/datasets/movielens/).
-<!--- We select some users and micro-videos in [Kwai](https://drive.google.com/open?id=1Xk-ofNoDnwcZg_zYE5tak9s1iW195kY2) and [Tiktok](https://drive.google.com/open?id=1mlKTWugOr8TxRb3vq_-03kbr0olSJN_7) datasets accoding to the timestamp. 
-- We extract the visual, acoustic, and textual features of all trailers in [Movielens](https://drive.google.com/open?id=1I1cHf9TXY88SbVCDhRiJV1drWX5Tc1-8) dataset.
--->
+Since the copyright of datasets, we cannot release them directly. 
+To facilate the line of research, we provide some toy datasets. [BaiduPan](https://pan.baidu.com/s/1BODXP7iihw8qtxpLeEv_XA)
+Anyone needs the full datasets, please contact the owner of datasets. 
+
 ||#Interactions|#Users|#Items|Visual|Acoustic|Textual|
 |:-|:-|:-|:-|:-|:-|:-|
 |Kwai|1,664,305|22,611|329,510|2,048|-|100|
