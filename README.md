@@ -65,9 +65,9 @@ Anyone needs the full datasets, please contact the owner of datasets.
 -`train.npy`
    Train file. Each line is a user with her/his positive interactions with items: (userID and micro-video ID)  
 -`val.npy`
-   Validation file. Each line is a user with her/his 1,000 negative and several positive interactions with items: (userID and micro-video ID)  
+   Validation file. Each line is a user several positive interactions with items: (userID and micro-video ID)  
 -`test.npy`
-   Test file. Each line is a user with her/his 1,000 negative and several positive interactions with items: (userID and micro-video ID)  
+   Test file. Each line is a user with several positive interactions with items: (userID and micro-video ID)  
 
 
 Copyright (C) <year>  Shandong University
