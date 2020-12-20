@@ -73,7 +73,7 @@ Some important arguments:
 We provide three processed datasets: Kwai, Tiktok, and Movielnes.  
 - You can find the full version of recommendation datasets via [Kwai](https://www.kuaishou.com/activity/uimc), [Tiktok](http://ai-lab-challenge.bytedance.com/tce/vc/), and [Movielens](https://grouplens.org/datasets/movielens/).
 Since the copyright of datasets, we cannot release them directly. 
-To facilate the line of research, we provide some toy datasets[[BaiduPan](https://pan.baidu.com/s/1BODXP7iihw8qtxpLeEv_XA)]. 
+To facilate the line of research, we provide some toy datasets[[BaiduPan](https://pan.baidu.com/s/1BODXP7iihw8qtxpLeEv_XA)](code: zsye). 
 Anyone needs the full datasets, please contact the owner of datasets. 
 
 ||#Interactions|#Users|#Items|Visual|Acoustic|Textual|
